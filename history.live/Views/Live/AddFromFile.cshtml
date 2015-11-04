@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>tjäna</title>
+    </head>
+    <body>
+        <div>
+            @using (Html.BeginForm("Read", "Live", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="file" />
+                <input type="submit" value="yes"/>
+            }
+        </div>
+    </body>
+</html>

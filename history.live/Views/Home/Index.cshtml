@@ -1,0 +1,42 @@
+﻿@{
+    Html.EnableClientValidation(); 
+    Html.EnableUnobtrusiveJavaScript();
+}
+
+@section page {
+    <section class="featured">
+        <div class="content-wrapper">
+            <p class="site-title">
+                <a href="~/">Mina konserter</a>
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix" ng-controller="ShowController">
+        <table id="shows">
+            <thead>
+                <tr>
+                    <th style="display: none;"></th>
+                    <th>Artist</th>
+                    <th>Arena</th>
+                    <th>Datum</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+    <section class="footer">    
+        @using (Html.BeginForm("Add", "Live"))
+        {
+            <input name="artist" type="text" placeholder="Ange artistens namn" tabindex="1" />
+            <input name="venue" type="text" class="required" placeholder="Ange konsertens plats" tabindex="2" />
+            <input name="date" type="text" class="required" placeholder="Ange datum" tabindex="3" />
+            <input name="atEvent" type="text" class="required" placeholder="Ange event" tabindex="4" />
+            <button type="submit" class="fa fa-plus" style="float: right; clear: left;" title="Lägg till konsert" value="" />
+            <div style="clear: both"></div>
+        }
+        <div style="clear: both"></div>
+        <span class="js-total-count">{{count}}</span>
+        <div style="clear: both"></div>
+    </section>
+}
